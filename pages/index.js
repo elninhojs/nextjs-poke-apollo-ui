@@ -3,6 +3,7 @@ import styles from '../styles/Home.module.css';
 import ResponsiveGrid from '../components/responsive-grid';
 import { gql } from "@apollo/client";
 import client from "../components/apollo-client";
+import LogoPanel from '../components/system-logo';
 
 export async function getServerSideProps() {
   const { data } = await client.query({
@@ -30,6 +31,7 @@ export default function Home({pokemons}) {
   return (
     <div className={styles.container}>
       <Head>
+        <LogoPanel></LogoPanel>
         <title>Next + Apollo + PokeAPI</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
