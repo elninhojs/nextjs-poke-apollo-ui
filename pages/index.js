@@ -3,13 +3,13 @@ import styles from '../styles/Home.module.css';
 import ResponsiveGrid from '../components/responsive-grid';
 import { gql } from "@apollo/client";
 import client from "../components/apollo-client";
-import LogoPanel from '../components/system-logo';
+import TopBar from '../components/top-bar';
 
 export async function getServerSideProps() {
   const { data } = await client.query({
     query: gql`
       query {
-        pokemons(limit: 20){
+        pokemons(limit: 15){
           results {
             name
             artwork
@@ -31,7 +31,7 @@ export default function Home({pokemons}) {
   return (
     <div className={styles.container}>
       <Head>
-        <LogoPanel></LogoPanel>
+        <TopBar selected="search"></TopBar>
         <title>Next + Apollo + PokeAPI</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -106,6 +106,12 @@ export default function Home({pokemons}) {
         }
         * {
           box-sizing: border-box;
+        }
+
+        nav.selected-true {
+          background-color: rgb(252,205,27);
+          border-color: rgb(60,94,146);
+          color: rgb(60,94,146);
         }
       `}</style>
     </div>

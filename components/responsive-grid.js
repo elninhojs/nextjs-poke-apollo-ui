@@ -1,5 +1,5 @@
-export default function ResponsiveGrid({ cols, colsBig, colsMedium, colsSmall, colsTiny, children }) {
-    return (<div>
+export default function ResponsiveGrid({ cols, colsBig, colsMedium, colsSmall, colsTiny, children, className}) {
+    return (<div className={`${className}`}>
         {children}
         <style jsx>{`
     div {

@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+}
+
+.container img:nth-child(1) {
+    height: 40px;
+    position: relative;
+    top: 10px
+}
+
+.container img:nth-child(2) {
+    height: 80px;
+    position: relative;
+    top: -10px;
+}
+
+.container img:nth-child(3) {
+    height: 70px;
+    position: relative;
+    top: -5px;
+}
+
+.container {
+    background-color: white;
+    box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.75);
+    height: 70px;
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+
+.container nav {
+    min-width: 200px;
+    display: inline-block;
+    border: solid 4px rgba(0,0,0,0.50);
+    color: rgba(0,0,0,0.50);
+    text-align: center;
+    margin-left: 3px;
+    height: 60px;
+    position: relative;
+    top: 6px;
+    right: 4px;
+    background-color: white;
+    line-height: 50px;
+    border-radius: 5pt 5pt 5pt 5pt;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+.menus {
+    text-align: right;
+    width: 100%;
+}
