@@ -4,6 +4,8 @@ import ResponsiveGrid from '../components/responsive-grid';
 import { gql } from "@apollo/client";
 import client from "../components/apollo-client";
 import TopBar from '../components/top-bar';
+import SearchBar from '../components/search-bar';
+import { useState, useEffect } from 'react';
 
 export async function getServerSideProps() {
   const { data } = await client.query({
@@ -28,6 +30,24 @@ export async function getServerSideProps() {
 
 
 export default function Home({pokemons}) {
+
+  const [records, setRecords] = useState(pokemons)
+  useEffect(async () => {
+    const { data } = await client.query({
+      query: gql`
+        query {
+          pokemons(limit: 1279){
+            results {
+              name
+              artwork
+            }
+          }
+        }
+      `,
+    });
+    setRecords(data.pokemons)
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -36,12 +56,9 @@ export default function Home({pokemons}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1 className={styles.title}>
-          Demo <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
+        <SearchBar onSearch={(e)=>alert(e)} placeholder="Type the pokemon name or type"/>
         <ResponsiveGrid cols="1fr 1fr 1fr 1fr 1fr">
-          {pokemons.results.map((pokemon) => (
+          {records.results.map((pokemon) => (
             <div key={pokemon.name} className={styles.card}>
               <img src={pokemon.artwork} alt="pokemon artwork"/>
               <p>
@@ -109,8 +126,7 @@ export default function Home({pokemons}) {
         }
 
         nav.selected-true {
-          background-color: rgb(252,205,27);
-          border-color: rgb(60,94,146);
+          background-color: rgba(252,205,27, .5);
           color: rgb(60,94,146);
         }
       `}</style>

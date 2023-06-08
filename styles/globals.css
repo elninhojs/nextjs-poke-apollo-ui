@@ -36,3 +36,12 @@ button {
   padding: 0.5rem 1rem;
   font-weight: bold;
 }
+
+nav.selected-false{
+ opacity: .7;
+}
+
+nav.selected-true {
+  opacity: 1;
+  text-decoration: underline;
+}

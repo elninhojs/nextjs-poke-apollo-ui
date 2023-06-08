@@ -1,0 +1,17 @@
+.txt {
+    padding: 10px;
+    font-size: 15px;
+}
+
+.btn {
+    background-color: rgba(252,205,27, .5);
+    color: rgb(60,94,146);
+    font-weight: bold;
+    border: 0 none;
+    opacity: .8;
+}
+
+.btn:hover {
+    cursor: pointer;
+    opacity: 1;
+}

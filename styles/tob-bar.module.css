@@ -32,21 +32,16 @@
 .container nav {
     min-width: 200px;
     display: inline-block;
-    border: solid 4px rgba(0,0,0,0.50);
-    color: rgba(0,0,0,0.50);
     text-align: center;
     margin-left: 3px;
-    height: 60px;
-    position: relative;
-    top: 6px;
+    height: 100%;
     right: 4px;
-    background-color: white;
-    line-height: 50px;
-    border-radius: 5pt 5pt 5pt 5pt;
+    line-height: 65px;
     font-weight: bold;
     font-size: 20px;
+    background-color: rgba(252,205,27, .5);
+    color: rgb(60,94,146);
 }
-
 
 .menus {
     text-align: right;
